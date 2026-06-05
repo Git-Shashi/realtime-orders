@@ -17,9 +17,12 @@ app.use(express.json());
 app.use('/api', router);
 
 if (process.env.NODE_ENV === 'production') {
-  const frontendDist = path.join(__dirname, '../../frontend/dist');
+  // In Docker: /frontend/dist (copied by multi-stage build)
+  // Locally: ../../frontend/dist relative to src/
+  const frontendDist = process.env.FRONTEND_DIST
+    ?? path.join(__dirname, '../../frontend/dist');
   app.use(express.static(frontendDist));
-  app.get('*', (req, res) => {
+  app.get('*', (_req, res) => {
     res.sendFile(path.join(frontendDist, 'index.html'));
   });
 }

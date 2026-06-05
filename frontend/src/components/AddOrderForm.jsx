@@ -30,7 +30,7 @@ export function AddOrderForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-bg-secondary border-t border-border px-6 py-3 flex gap-3 items-center flex-shrink-0"
+      className="sticky top-0 z-[100] bg-bg-secondary border-b border-border px-6 py-3 flex gap-3 items-center flex-shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
     >
       <Input
         value={customer}

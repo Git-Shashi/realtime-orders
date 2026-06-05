@@ -91,11 +91,11 @@ export default function App() {
       <div className="flex flex-col min-h-screen">
         <Header status={status} />
         <StatsBar orders={orders} />
+        <AddOrderForm />
         <main className="flex gap-6 p-6 flex-1 overflow-hidden">
           <OrdersTable orders={orders} flashMap={flashMap} />
           <ActivityFeed entries={feed} />
         </main>
-        <AddOrderForm />
       </div>
       <Toaster />
     </>
